@@ -8,7 +8,7 @@
       window.onload = function(){
         //populate inbox
         for (i=0; i<10; i++) {
-          $('.inbox').append('<li class="emaillist">' + '<span class="emailsubject">' + window.geemails[i].subject + '</span>' + ' - ' + window.geemails[i].sender + ' - ' + '<span class="emaildate">' + window.geemails[i].date + '</span>' + '<span class="emailbody" hidden>' + window.geemails[i].body + '</span>' +'</li>');
+          $('.inbox').append('<li class="emaillist">' + '<span class="emailsubject">' + window.geemails[i].subject + '</span>' + ' - ' + window.geemails[i].sender + ' - ' + '<span class="emaildate">' + window.geemails[i].date + '</span>' + '<span class="emailbody">' + window.geemails[i].body + '</span>' +'</li>');
         }
     
         //counter for header
@@ -19,10 +19,16 @@
           var newMessage = generateMessage();
           window.geemails.push(newMessage);
           $('#count').html('<span>You have <b>' + window.geemails.length +  '</b> emails</span>');
-          $('.inbox').append('<li class="emaillist">' + '<span class="emailsubject">' + newMessage.subject + '</span>' + ' - ' + newMessage.sender + ' - ' + '<span class="emaildate">' + newMessage.date + '</span>' + '<span class="emailbody" hidden>' + newMessage.body + '</span>' +'</li>');
+          $('.inbox').append('<li class="emaillist">' + '<span class="emailsubject">' + newMessage.subject + '</span>' + ' - ' + newMessage.sender + ' - ' + '<span class="emaildate">' + newMessage.date + '</span>' + '<span class="emailbody">' + newMessage.body + '</span>' +'</li>');
         };
-  
-            window.setInterval(addNewMail, 5000);
+        
+        //show messages on click
+        $('.inbox').on('click','li',function() {
+                $('.emailbody',this).slideToggle("fast");
+        });
+        
+        //send new message every 5 secs
+        window.setInterval(addNewMail, 5000);
 
   
   };

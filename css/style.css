@@ -24,12 +24,12 @@ body {
 
 .nav {
   float: left;
-  width: 150px;
+  width: 18%;
   border-right-width: 1px;
   border-right-style: solid;
-  margin-right: 60px;
+  margin-right: 2%;
   border-color: #a0a0a0;
-
+  box-sizing: border-box;
 }
 
 .nav ul {
@@ -60,7 +60,7 @@ a:visited {
   list-style-type: none;
   margin-left:-40px;
   color:#545454;
-  width:auto;
+  width:80%;
 }
 
 #selected {
@@ -81,6 +81,6 @@ a:visited {
 .emaildate {
   color: #b2b2b2;
 }
-.emailsubject {
-  
+.emailbody {
+  display: none;
 }
