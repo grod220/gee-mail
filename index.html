@@ -1,18 +1,36 @@
 <html>
 	<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 		<script src="js/mail-generator.js"></script>
 		<link href="css/style.css" rel="stylesheet" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
     <script>
       window.onload = function(){
-        // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
-        // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
+        //populate inbox
         
+        for (i=0; i<10; i++) {
+          $('.inbox').append('<a href=""><li class="emaillist">' + '<span class="emailsubject">' + window.geemails[i].subject + '</span>' + ' - ' + window.geemails[i].sender + ' - ' + '<span class="emaildate">' + window.geemails[i].date + '</span>' + '</li></a>');
+        }
+        
+        //counter for header
+        $('#count').html('<span>You have ' + window.geemails.length + ' emails</span>');
+
       };
     </script>
 	</head>
 	<body>
-		<div class="container" id="main">
-			Build Me!
-		</div>
+    <div class="header">
+      <span id="logo">GeeMail</span>
+      <span id="count"></span>
+    </div>
+    <div class="nav">   
+      <ul>
+        <li><a href="" id="selected">Inbox</a></li>
+        <li><a href="">Sent Mail</a></li>
+        <li><a href="">All Mail</a></li>
+        <li><a href="">Important</a></li>
+      </ul>
+      </div>
+		<ul class="inbox"></ul>
 	</body>
 </html>
